@@ -12,7 +12,7 @@ Based on the [official example](https://github.com/serverless/examples/tree/mast
 Install the package via NPM:
 
 ```bash
-npm install --save-dev https://github.com/amaysim-au/serverless-single-page-app-plugin/tarball
+npm install --save-dev https://github.com/jonathanconway/serverless-single-page-app-plugin/tarball
 ```
 
 Then register it in your `serverless.yml` file, as a plugin:
