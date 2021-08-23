@@ -55,7 +55,7 @@ class ServerlessPlugin {
   // syncs the `app` directory to the provided bucket
   syncDirectory() {
     this.getDescribeStacksOutput('WebAppS3BucketOutput').then(s3Bucket => {
-      const s3LocalPath = this.serverless.variables.service.custom.s3LocalPath;
+      const s3LocalPath = this.serverless.service.custom.s3LocalPath;
       const args = [
         's3',
         'sync',
