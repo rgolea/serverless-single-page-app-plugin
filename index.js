@@ -1,6 +1,7 @@
 'use strict';
 
 const spawnSync = require('child_process').spawnSync;
+const path = require('path');
 
 class ServerlessPlugin {
   constructor(serverless, options) {
@@ -56,10 +57,11 @@ class ServerlessPlugin {
   syncDirectory() {
     this.getDescribeStacksOutput('WebAppS3BucketOutput').then(s3Bucket => {
       const s3LocalPath = this.serverless.service.custom.s3LocalPath;
+      const s3RelativePath = path.resolve(process.cwd(), s3LocalPath);
       const args = [
         's3',
         'sync',
-        s3LocalPath,
+        s3RelativePath,
         `s3://${s3Bucket}/`,
       ];
       this.serverless.cli.log(args);
